@@ -37,10 +37,7 @@ class LoginState extends State<Login> {
           children: <Widget>[
             Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                 // image: ExactAssetImage('images/curved.jpg'),
-                  fit: BoxFit.cover,
-                ),
+
               ),
             ),
             Container(
