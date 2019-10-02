@@ -24,7 +24,7 @@ class Home extends State<HomePage>   {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-//            Helper.uploadForm(context);
+            Helper.uploadForm(context);
           },
           child: Icon(Icons.add),
         ),

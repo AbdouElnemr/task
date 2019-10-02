@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:task/utils/CustomUploadDialoge.dart';
 
 class Helper {
   static final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -69,71 +70,14 @@ class Helper {
 
   static void uploadForm(BuildContext context) {
     showDialog(
-        context: context,
-        builder: (context) {
-          return CupertinoAlertDialog(
-            title: Text('Upload Image\n'),
-
-             actions: <Widget>[
-              Scaffold(
-                body: Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                          child: new CircleAvatar(
-                            child: const Text('C'),
-                            foregroundColor: Colors.white,
-                          ),
-                          width: 120.0,
-                          height: 120.0,
-                          padding: const EdgeInsets.all(2.0),
-                          // borde width
-                          decoration: new BoxDecoration(
-                            color: const Color(0xFFFFFFFF), // border color
-                            shape: BoxShape.circle,
-                          )),
-                      Container(
-                        child: TextFormField(
-                          controller: _imageName,
-                          // keyboardType: TextInputType.,
-                          obscureText: true,
-                          decoration: InputDecoration(
-                              labelText: "Password ",
-                              icon: Icon(Icons.vpn_key),
-                              hintText: "Eg : **********"),
-
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return "password Can't be Empty";
-                            } else if (value.length < 6) {
-                              return "Your Password is weak";
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
-                      FlatButton(
-                          onPressed: () {
-                            _dismissDialog(context);
-                          },
-                          child: Text('Close')),
-                      FlatButton(
-                        onPressed: () {
-                          print('upload');
-                          _dismissDialog(context);
-                        },
-                        child: Text('Upload!'),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-
-
-            ],
-          );
-        });
+      context: context,
+      builder: (BuildContext context) => CustomDialog(
+        title: "Press avatar to upload",
+        description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        buttonText: "Upload",
+      ),
+    );
   }
 
 //
