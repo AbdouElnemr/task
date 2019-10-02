@@ -8,7 +8,7 @@ class Consts {
   static const double avatarRadius = 66.0;
 }
 class CustomDialog extends StatelessWidget {
-  final String title, description, buttonText, textInput;
+  final String title, description, buttonText;
   final Image image;
   TextEditingController _imageNameController = TextEditingController();
 
@@ -16,7 +16,6 @@ class CustomDialog extends StatelessWidget {
     @required this.title,
     @required this.description,
     @required this.buttonText,
-    @required this.textInput,
     this.image,
   });
 
@@ -28,7 +27,8 @@ class CustomDialog extends StatelessWidget {
       ),
       elevation: 0.0,
       backgroundColor: Colors.transparent,
-      child: dialogContent(context),    );
+      child: dialogContent(context),
+    );
   }
 
   dialogContent(BuildContext context) {
@@ -65,14 +65,10 @@ class CustomDialog extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 16.0),
-//              Text(
-//                description,
-//                textAlign: TextAlign.center,
-//                style: TextStyle(
-//                  fontSize: 16.0,
-//                ),
-//              ),
-              TextFormField(
+
+              SizedBox(height: 24.0),
+
+          TextFormField(
                 controller: _imageNameController,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
@@ -86,7 +82,6 @@ class CustomDialog extends StatelessWidget {
                   return null;
                 },
               ),
-              SizedBox(height: 24.0),
               Align(
                 alignment: Alignment.bottomRight,
                 child: FlatButton(
@@ -99,6 +94,7 @@ class CustomDialog extends StatelessWidget {
             ],
           ),
         ),
+
         Positioned(
           left: Consts.padding,
           right: Consts.padding,
